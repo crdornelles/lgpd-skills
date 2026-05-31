@@ -3,6 +3,20 @@
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 Versionamento segue [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [1.2.0] - 2026-05-30
+
+### Adicionado
+- **Distribuição multi-agente**: manifests nativos para Codex (`.codex-plugin/plugin.json`),
+  Cursor (`.cursor-plugin/plugin.json`), Gemini CLI (`gemini-extension.json`) e OpenCode
+  (`.opencode/plugins/lgpd-skills.js` + `package.json`).
+- `skills/lgpd-audit/references/skill-activation.md` — como ativar sub-skills em cada agente.
+- README: seção de instalação com o comando de cada um dos 5 agentes.
+
+### Alterado
+- **Reestruturação para o layout canônico agentskills.io**: skills movidas de
+  `plugins/lgpd-skills/skills/` para `skills/` na raiz; o repo-raiz passa a ser o plugin.
+  `marketplace.json` agora usa `source: "./"`. Instalação via Claude Code permanece igual.
+
 ## [1.1.1] - 2026-05-29
 
 ### Corrigido
@@ -38,6 +52,7 @@ Versionamento segue [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - README bilíngue (PT-BR principal + visão geral em EN)
 - Licença MIT
 
+[1.2.0]: https://github.com/goul4rt/lgpd-skills/releases/tag/v1.2.0
 [1.1.1]: https://github.com/goul4rt/lgpd-skills/releases/tag/v1.1.1
 [1.1.0]: https://github.com/goul4rt/lgpd-skills/releases/tag/v1.1.0
 [1.0.0]: https://github.com/goul4rt/lgpd-skills/releases/tag/v1.0.0
