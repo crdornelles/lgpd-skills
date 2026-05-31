@@ -1,6 +1,6 @@
 # lgpd-skills
 
-> Conjunto modular e orquestrado de **skills para Claude** que cobre, ponta-a-ponta, conformidade com a **Lei nº 13.709/2018 (LGPD)**, resoluções da ANPD aplicáveis e a **Lei nº 15.211/2025 (ECA Digital)**.
+> Conjunto modular e orquestrado de **Agent Skills** — funciona em **Claude Code, Codex, Gemini CLI, Cursor e OpenCode** — que cobre, ponta-a-ponta, conformidade com a **Lei nº 13.709/2018 (LGPD)**, resoluções da ANPD aplicáveis e a **Lei nº 15.211/2025 (ECA Digital)**.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
@@ -9,7 +9,7 @@
 
 ---
 
-> **EN — Quick overview:** A Claude skill bundle (works in Claude Code, Claude.ai, and the Claude app) that runs an end-to-end Brazilian privacy-law compliance audit on your codebase. One orchestrator skill (`lgpd-audit`) chains 18 specialized sub-skills covering legal basis, data mapping, ROPA, DPIA (RIPD), consent ledger, DSAR endpoints, incident response (3 business days notification), encryption, retention, vendor DPAs, international transfer clauses, and ECA Digital (online safety for minors). Outputs versioned artifacts under `.lgpd/`. Triggered by phrases like *"audit our LGPD compliance"* or *"we had a data breach"*. MIT licensed.
+> **EN — Quick overview:** An Agent Skills bundle (works in Claude Code, Codex, Gemini CLI, Cursor, and OpenCode) that runs an end-to-end Brazilian privacy-law compliance audit on your codebase. One orchestrator skill (`lgpd-audit`) chains 18 specialized sub-skills covering legal basis, data mapping, ROPA, DPIA (RIPD), consent ledger, DSAR endpoints, incident response (3 business days notification), encryption, retention, vendor DPAs, international transfer clauses, and ECA Digital (online safety for minors). Outputs versioned artifacts under `.lgpd/`. Triggered by phrases like *"audit our LGPD compliance"* or *"we had a data breach"*. MIT licensed.
 
 ---
 
@@ -32,7 +32,7 @@
 
 ## 🎯 O que é
 
-Um pacote de skills para o **Claude** (Code, app web e desktop) que transforma uma conversa de "preciso adequar isso aqui à LGPD" em um pipeline executável, versionável e auditável.
+Um pacote de **Agent Skills** — instalável em Claude Code, Codex, Gemini CLI, Cursor e OpenCode — que transforma uma conversa de "preciso adequar isso aqui à LGPD" em um pipeline executável, versionável e auditável.
 
 Em vez de uma skill gigante e monolítica, aqui são **19 skills coordenadas**:
 
@@ -54,50 +54,82 @@ Nenhum desses tempos é cravado — depende do tamanho do projeto, da equipe dis
 
 ## 📦 Instalação
 
-### Opção 1: Plugin do Claude Code (recomendado)
+As skills seguem o padrão aberto **Agent Skills** ([agentskills.io](https://agentskills.io))
+e funcionam nativamente em 5 agentes. Escolha o seu:
 
-Sem cópia manual de arquivos, com versionamento e auto-update via Git:
+### Claude Code (recomendado)
 
-```
+```text
 /plugin marketplace add goul4rt/lgpd-skills
 /plugin install lgpd-skills@lgpd-skills
 ```
 
-As 19 skills passam a ficar disponíveis automaticamente (namespace `lgpd-skills:`). Para atualizar, basta `/plugin marketplace update lgpd-skills`.
+Atualizar: `/plugin marketplace update lgpd-skills`.
 
-### Opção 2: Manual por projeto (times que versionam as skills no repo)
+### Codex (CLI / App)
 
 ```bash
-git clone https://github.com/goul4rt/lgpd-skills.git /tmp/lgpd-skills
-cp -r /tmp/lgpd-skills/plugins/lgpd-skills/skills/lgpd-* .claude/skills/
-rm -rf /tmp/lgpd-skills
-git add .claude/skills/lgpd-* && git commit -m "feat: add lgpd-skills"
+codex plugin marketplace add goul4rt/lgpd-skills
+codex plugin add lgpd-skills@lgpd-skills
 ```
 
-### Opção 3: Manual global (todos os seus projetos)
+Ou, dentro do `codex`, rode `/plugins` e instale pela vitrine. Não é preciso submeter
+nada ao marketplace da OpenAI — o repo é a própria fonte.
+
+### Gemini CLI
+
+```bash
+gemini extensions install https://github.com/goul4rt/lgpd-skills
+```
+
+Atualizar: `gemini extensions update lgpd-skills`. As 19 skills são auto-descobertas e
+disparam via `activate_skill`.
+
+### Cursor
+
+No editor, rode `/add-plugin` e cole a URL do repo
+(`https://github.com/goul4rt/lgpd-skills`), ou instale pela vitrine em
+[cursor.com/marketplace](https://cursor.com/marketplace).
+
+### OpenCode
+
+Adicione ao array `plugin` do seu `opencode.json` e reinicie:
+
+```json
+{
+  "plugin": ["lgpd-skills@git+https://github.com/goul4rt/lgpd-skills.git"]
+}
+```
+
+Detalhes e ressalvas em [`.opencode/INSTALL.md`](./.opencode/INSTALL.md). **Atenção:** no
+OpenCode as skills não disparam sozinhas — ative com a ferramenta `skill` (ex.: "use a
+skill lgpd-audit").
+
+### Manual (qualquer agente que leia `~/.claude/skills/` ou `.claude/skills/`)
 
 ```bash
 git clone https://github.com/goul4rt/lgpd-skills.git /tmp/lgpd-skills
-cp -r /tmp/lgpd-skills/plugins/lgpd-skills/skills/lgpd-* ~/.claude/skills/
+cp -r /tmp/lgpd-skills/skills/lgpd-* ~/.claude/skills/   # global
+# ou, por projeto: cp -r /tmp/lgpd-skills/skills/lgpd-* .claude/skills/
 rm -rf /tmp/lgpd-skills
 ```
 
 ## 🚀 Como usar
 
-Após instalar, o Claude detecta as skills automaticamente. Não precisa configurar nada.
+Após instalar, o agente detecta as skills automaticamente — não precisa configurar nada. (No OpenCode, as skills não disparam sozinhas: ative com a ferramenta `skill`, ex.: "use a skill lgpd-audit".)
 
 ### Fluxo típico: auditoria completa
 
 ```
 Você: veja como estamos de LGPD
 
-Claude: [ativa lgpd-audit]
+Agente: [ativa lgpd-audit]
   → Antes de começar, qual cenário descreve melhor o projeto?
     A) Greenfield  B) Legacy  C) Híbrido  D) Resposta a incidente
 
 Você: B
 
-Claude: [inicia Pipeline B — Legacy Retrofit]
+Agente: [inicia Pipeline B — Legacy Retrofit]
   → Vou começar pelo lgpd-legacy-retrofit para gap analysis...
   → [lê código, schemas, package.json, env, ToS atual]
   → [produz .lgpd/discovery.md + .lgpd/gaps.md]
@@ -105,7 +137,7 @@ Claude: [inicia Pipeline B — Legacy Retrofit]
 
 Você: (revisa) Continue.
 
-Claude: → lgpd-data-mapping...
+Agente: → lgpd-data-mapping...
   → lgpd-legal-basis...
   → (continua até a conclusão do pipeline)
 ```
@@ -117,13 +149,13 @@ Pode invocar qualquer skill diretamente:
 ```
 Você: implementa o endpoint de exclusão de conta
 
-Claude: [ativa lgpd-dsar e gera código + schema + audit log]
+Agente: [ativa lgpd-dsar e gera código + schema + audit log]
 ```
 
 ```
 Você: tivemos um vazamento de e-mails, preciso comunicar a ANPD
 
-Claude: [ativa lgpd-incident-response em modo emergencial]
+Agente: [ativa lgpd-incident-response em modo emergencial]
   → Vou guiar pelo runbook da Res. 15/2024. T+0...
 ```
 
@@ -181,7 +213,7 @@ Versione em Git, revise em PR, audite em retrospectiva.
 
 ## 🔑 Gatilhos
 
-O Claude detecta automaticamente — você não precisa decorar nada. Exemplos que ativam:
+O agente detecta automaticamente — você não precisa decorar nada. Exemplos que ativam:
 
 | Frase | Skill |
 |---|---|
@@ -209,7 +241,7 @@ O Claude detecta automaticamente — você não precisa decorar nada. Exemplos q
 - **Resoluções CD/ANPD nº 30 e 31/2025** — Agendas regulatória e de fiscalização
 - **Lei nº 15.211/2025** (ECA Digital) — em vigor desde 17/03/2026
 
-Encode rígido das normas em [`plugins/lgpd-skills/skills/lgpd-audit/references/normative-reference.md`](./plugins/lgpd-skills/skills/lgpd-audit/references/normative-reference.md). As skills citam o artigo e a fonte sempre.
+Encode rígido das normas em [`skills/lgpd-audit/references/normative-reference.md`](./skills/lgpd-audit/references/normative-reference.md). As skills citam o artigo e a fonte sempre.
 
 ## 🛠️ Stack assumida
 
