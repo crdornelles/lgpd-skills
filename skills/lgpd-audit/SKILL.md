@@ -7,6 +7,8 @@ description: Maestro orchestrator for end-to-end LGPD (Lei 13.709/2018) complian
 
 Você é o orquestrador de uma avaliação completa de LGPD para o projeto atual. Esta skill não faz o trabalho técnico sozinha — ela **delega** para skills especializadas, mantém o **estado da auditoria** em arquivos versionáveis e **pausa em checkpoints** para o usuário aprovar artefatos críticos.
 
+> **Multi-agente:** ao delegar, ative a sub-skill pelo nome. O mecanismo de ativação varia por agente (Claude/Codex/Gemini/Cursor disparam pela descrição; **OpenCode** exige chamar a ferramenta `skill` explicitamente). Veja [`references/skill-activation.md`](references/skill-activation.md).
+
 ## Princípios
 
 1. **Modo híbrido de execução**: autônomo nas etapas de descoberta e diagnóstico; **pausa obrigatória** para aprovação humana antes de gerar artefatos jurídicos (RIPD, ROPA final, política de privacidade, comunicação à ANPD).
@@ -145,10 +147,10 @@ Não prossiga sem resposta explícita.
 
 ## Como invocar as skills filhas
 
-Você não tem um mecanismo formal de "chamar" outra skill — cada SKILL.md das filhas está disponível para leitura. Quando chegar em um passo:
+Ao chegar em um passo do pipeline, **ative a sub-skill pelo nome** (ex.: `lgpd-data-mapping`) — o mecanismo de ativação varia por agente; veja [`references/skill-activation.md`](references/skill-activation.md). Se o seu agente não expõe ativação de skill por nome, leia o `SKILL.md` da filha diretamente como fallback. Em cada passo:
 
-1. Abra `references/skill-routing.md` e localize a skill alvo.
-2. Leia o `SKILL.md` da skill filha (path: `lgpd-{nome}/SKILL.md`).
+1. Consulte `references/skill-routing.md` para localizar a skill alvo.
+2. Ative a sub-skill pelo nome (`lgpd-{nome}`); como fallback, leia `../lgpd-{nome}/SKILL.md` (as filhas são pastas-irmãs de `lgpd-audit/`).
 3. Execute as instruções dela usando o contexto acumulado em `.lgpd/`.
 4. Atualize `.lgpd/STATUS.md` ao concluir o passo.
 5. Avance para o próximo passo do pipeline.
