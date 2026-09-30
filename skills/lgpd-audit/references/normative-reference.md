@@ -88,13 +88,13 @@ Eixos de fiscalização: (i) direitos dos titulares; (ii) crianças/adolescentes
 
 Transformou a ANPD em agência reguladora autônoma. Não muda os deveres dos controladores, mas indica fiscalização mais ativa adiante.
 
-## Padrões de segurança que a ANPD reconhece (Art. 46)
+## Padrões de segurança usados como referência (Art. 46)
 
-A LGPD não lista medidas de segurança. A ANPD aponta como referência de boa prática:
+A LGPD não lista medidas de segurança. A ANPD publica o guia abaixo; a skill `lgpd-security-baseline` usa também ISO/IEC e CIS Controls v8 como referências de boa prática, sem que a ANPD os tenha endossado formalmente:
 
 - **Guia Orientativo de Segurança da Informação para ATPP** (ANPD, out/2021): medidas administrativas (política, treinamento, contratos) e técnicas (controle de acesso, dados armazenados, comunicação segura, vulnerabilidades, dispositivos móveis, nuvem). Res. 2/2022, Art. 13.
-- **ISO/IEC 27001:2022** (gestão de segurança da informação; Anexo A com 93 controles) e **ISO/IEC 27002:2022** (orientação de cada controle). Normas pagas; certificação só por organismo acreditado.
-- **ISO/IEC 27701:2019** (extensão de privacidade: cláusula 7 para controladores, cláusula 8 para operadores). Em revisão.
+- **ISO/IEC 27001:2022** (gestão de segurança da informação; Anexo A com 93 controles) e **ISO/IEC 27002:2022** (orientação de cada controle). Normas pagas; a certificação é feita por organismo independente, e a acreditação desse organismo é opcional (dá confiança adicional, não é exigência da ISO).
+- **ISO/IEC 27701:2025** (sistema de gestão de privacidade autônomo; Anexo A com a tabela A.1 para controladores, A.2 para operadores e A.3 de segurança compartilhada). Substituiu a edição de 2019 (cláusulas 7 e 8), retirada pela ISO; certificados de 2019 migram até outubro de 2028.
 - **CIS Controls v8** (Center for Internet Security): 18 controles, 153 salvaguardas; o IG1 (56) é o mínimo para qualquer organização.
 
 Nenhum deles é obrigatório por lei; "seguimos" exige evidência (skill `lgpd-security-baseline`), e "somos certificados" exige certificado.

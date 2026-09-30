@@ -8,7 +8,7 @@ Versionamento segue [Semantic Versioning](https://semver.org/lang/pt-BR/).
 ### Adicionado
 - **`lgpd-security-baseline`**: matriz de aderência às referências que a ANPD reconhece para o
   Art. 46 — guia de segurança da ANPD (2021), ISO/IEC 27001:2022 (Anexo A, 93 controles),
-  ISO/IEC 27701:2019 (cláusulas 7 e 8) e CIS Controls v8 (IG1, 56 salvaguardas, mais o IG2 que
+  ISO/IEC 27701:2025 (Anexo A, tabelas A.1, A.2 e A.3) e CIS Controls v8 (IG1, 56 salvaguardas, mais o IG2 que
   toca um SaaS). Cada controle com situação, evidência, dono (código, operação, processo) e
   lacuna; nada marcado "cumpre" sem evidência. Listas em `references/`, template em `assets/`.
 - **`lgpd-security-policy`**: política de segurança da informação e programa de conscientização
@@ -17,7 +17,7 @@ Versionamento segue [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - **`lgpd-operator`**: o produto como operador (Art. 39) — DPA voltado aos clientes (o produto é
   o operador, o cliente é o controlador), lista pública de suboperadores com aviso de mudança,
   entradas do ROPA como operador e matriz de deveres do controlador que o produto precisa apoiar
-  (ISO 27701, cláusula 8). Complementa `lgpd-dpa`, que olha para os fornecedores contratados.
+  (ISO 27701:2025, tabela A.2). Complementa `lgpd-dpa`, que olha para os fornecedores contratados.
 - `lgpd-audit`: passos F15 a F17 no Pipeline A e L13 e L14 no Pipeline B; roteamento e dependências
   das três skills; seção "Padrões de segurança que a ANPD reconhece" em `normative-reference.md`.
 - README: as três skills na árvore, na tabela de gatilhos e em `.lgpd/security/` e `.lgpd/operator/`.

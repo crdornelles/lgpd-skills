@@ -27,9 +27,9 @@ O Cliente é o **controlador** dos dados pessoais que insere, importa ou recebe 
 
 As instruções do Cliente são: (a) este Acordo; (b) as funções que {Produto} oferece pela interface e pela API, conforme a documentação; (c) as configurações que o Cliente escolhe (retenção, integrações, agentes de IA, {outras}); (d) instruções escritas adicionais aceitas por {Produto}.
 
-{Produto} não trata os dados do Cliente para fins próprios, inclusive marketing, perfilamento ou treinamento de modelos, salvo de forma anonimizada e agregada para operar e melhorar o serviço (ISO/IEC 27701, 8.2.2 e 8.2.3).
+{Produto} não trata os dados do Cliente para fins próprios, inclusive marketing, perfilamento ou treinamento de modelos, salvo de forma anonimizada e agregada para operar e melhorar o serviço (ISO/IEC 27701:2025, A.2.2.3 e A.2.2.4).
 
-Se {Produto} entender que uma instrução viola a LGPD, avisa o Cliente e pode suspender aquela instrução (ISO/IEC 27701, 8.2.4).
+Se {Produto} entender que uma instrução viola a LGPD, avisa o Cliente e pode suspender aquela instrução (ISO/IEC 27701:2025, A.2.2.5).
 
 ## 4. Confidencialidade
 
@@ -37,7 +37,7 @@ Se {Produto} entender que uma instrução viola a LGPD, avisa o Cliente e pode s
 
 ## 5. Segurança
 
-{Produto} adota as medidas técnicas e administrativas do Anexo I (LGPD, Art. 46), entre elas: cifra em trânsito e em repouso, controle de acesso com autenticação forte, isolamento entre contas, registro de auditoria, backup cifrado com prova de restauração, gestão de vulnerabilidades e plano de resposta a incidentes. A matriz de aderência aos padrões que a ANPD reconhece (guia de segurança da ANPD, ISO/IEC 27001 e 27701, CIS Controls) fica disponível ao Cliente mediante pedido.
+{Produto} adota as medidas técnicas e administrativas listadas como implementadas e evidenciadas no Anexo I (LGPD, Art. 46). {Ao preencher o Anexo I, inclua apenas controles cuja implementação foi confirmada na matriz de `lgpd-security-baseline`, por exemplo: cifra em trânsito e em repouso, controle de acesso com autenticação forte, isolamento entre contas, registro de auditoria, backup cifrado com prova de restauração, gestão de vulnerabilidades e plano de resposta a incidentes. Controle `em parte` ou `não cumpre` não entra no Anexo I.} A matriz de aderência aos padrões de referência (guia de segurança da ANPD, ISO/IEC 27001 e 27701, CIS Controls) fica disponível ao Cliente mediante pedido.
 
 ## 6. Suboperadores
 
@@ -79,11 +79,11 @@ Suboperadores fora do Brasil estão indicados no Anexo II com o país e a base d
 
 ## 13. Responsabilidades do Controlador
 
-O Cliente garante que: tem base legal para os dados que insere em {Produto} (Art. 7º e 11); informou os titulares (Art. 9º); obteve consentimento quando exigido, inclusive para mensagens de marketing; não insere dados de que não precisa; configura o serviço (retenção, integrações, agentes) conforme as próprias obrigações; e atende os titulares no prazo legal (ISO/IEC 27701, 8.2.5).
+O Cliente garante que: tem base legal para os dados que insere em {Produto} (Art. 7º e 11); informou os titulares (Art. 9º); obteve consentimento quando exigido, inclusive para mensagens de marketing; não insere dados de que não precisa; configura o serviço (retenção, integrações, agentes) conforme as próprias obrigações; e atende os titulares no prazo legal (ISO/IEC 27701:2025, A.2.2.6).
 
 ## 14. Pedidos de autoridades
 
-Se {Produto} receber ordem de autoridade pública ou judicial por dados do Cliente, comunica o Cliente antes de atender, salvo proibição legal, e limita a entrega ao exigido (ISO/IEC 27701, 8.5.4 e 8.5.5).
+Se {Produto} receber ordem de autoridade pública ou judicial por dados do Cliente, comunica o Cliente antes de atender, salvo proibição legal, e limita a entrega ao exigido (ISO/IEC 27701:2025, A.2.5.5 e A.2.5.6).
 
 ## 15. Vigência e alterações
 

@@ -14,7 +14,7 @@ Um SaaS B2B, uma agência ou uma plataforma que guarda dados dos clientes dos se
 | Artefato | Onde | Para quê |
 |---|---|---|
 | Contrato de operador (DPA do produto) | `.lgpd/operator/dpa-{produto}.md` | anexo ao contrato ou aos termos de uso; o cliente assina ou aceita |
-| Lista pública de suboperadores | `.lgpd/operator/subprocessors.md` (e uma página pública) | Art. 39, § 1º por analogia e ISO 27701 8.5.6: o cliente sabe para quem o dado vai |
+| Lista pública de suboperadores | `.lgpd/operator/subprocessors.md` (e uma página pública) | transparência contratual sobre os destinatários dos dados (ISO 27701:2025, A.2.5.7): o cliente sabe para quem o dado vai |
 | Entradas do ROPA como operador | seção II do `.lgpd/ROPA.md` | Art. 37: o operador também mantém registro |
 | Matriz de deveres para com o controlador | `.lgpd/operator/customer-duties.md` | o que o produto precisa oferecer para o cliente cumprir a LGPD (exportar, corrigir, excluir, avisar) |
 
@@ -28,10 +28,10 @@ Liste cada tratamento e diga quem decide finalidade e meios:
 |---|---|---|
 | Cadastro, login, cobrança, uso do painel | controlador | o cliente (pessoa que assina e a equipe dele) |
 | Contatos, conversas, pedidos, notas que o cliente guarda no produto | operador | os clientes do cliente |
-| Métricas agregadas do produto | controlador, se anonimizadas; operador, se identificáveis | |
+| Métricas do produto | fora da LGPD se efetivamente anonimizadas (Art. 12); controlador se tratar dado pessoal para finalidade própria; operador se tratar dado pessoal por instrução do cliente | depende do tratamento |
 | Modelos de IA que leem dados do cliente | operador (e o provedor de IA é suboperador) | os clientes do cliente |
 
-Regra: o produto não usa o dado de que é operador para fim próprio (marketing, treino de modelo, venda de lista). Se usa, ele virou controlador daquele tratamento e precisa de base legal própria e aviso ao titular (ISO 27701 8.2.2 e 8.2.3).
+Regra: o produto não usa o dado de que é operador para fim próprio (marketing, treino de modelo, venda de lista). Se usa, ele virou controlador daquele tratamento e precisa de base legal própria e aviso ao titular (ISO 27701:2025, A.2.2.3 e A.2.2.4).
 
 ### 2. Inventarie os suboperadores
 
@@ -49,8 +49,8 @@ Use `assets/operator-dpa-template.md`. As 12 cláusulas do `lgpd-dpa` continuam,
 - **Incidente (cl. 8)**: prazo do operador para avisar o controlador tem que caber nos 3 dias úteis do controlador (Res. CD/ANPD 15/2024, Art. 6º). {24 horas} do conhecimento é o usual; diga o que o aviso contém (o que aconteceu, dados e titulares afetados, medidas, contato).
 - **Devolução e eliminação (cl. 9)**: exportação da conta inteira no encerramento e exclusão em {30} dias, salvo retenção legal; backup expira pela retenção do backup, e o contrato diz isso.
 - **Auditoria (cl. 10)**: relatório e evidências (matriz do `lgpd-security-baseline`, certificações) antes de auditoria presencial; auditoria presencial com aviso e custo do cliente.
-- **Responsabilidade do controlador (cl. 13, nova)**: base legal, aviso ao titular, consentimento para marketing e uso lícito são do cliente (ISO 27701 8.2.5). O produto pode recusar instrução que viole a lei (8.2.4).
-- **Ordem de autoridade (cl. 14, nova)**: pedido de autoridade por dado do cliente é comunicado ao cliente, salvo proibição legal (ISO 27701 8.5.4 e 8.5.5).
+- **Responsabilidade do controlador (cl. 13, nova)**: base legal, aviso ao titular, consentimento para marketing e uso lícito são do cliente (ISO 27701:2025, A.2.2.6). O produto pode recusar instrução que viole a lei (A.2.2.5).
+- **Ordem de autoridade (cl. 14, nova)**: pedido de autoridade por dado do cliente é comunicado ao cliente, salvo proibição legal (ISO 27701:2025, A.2.5.5 e A.2.5.6).
 
 ### 4. Registre no ROPA como operador
 
@@ -58,7 +58,7 @@ Uma linha "O00N" por tratamento em que o produto é operador (template do `lgpd-
 
 ### 5. Liste os deveres para com o controlador
 
-Preencha `assets/customer-duties-template.md`: para cada obrigação do cliente (atender titular em 15 dias, corrigir, excluir, informar base legal, comunicar incidente, devolver ao fim), o que o produto oferece hoje (tela, API, rotina), o que falta, e o prazo. O que falta vira achado ou item de roadmap.
+Preencha `assets/customer-duties-template.md`: para cada obrigação do cliente (responder ao titular em formato simplificado de imediato ou com declaração completa em até 15 dias, corrigir, excluir, informar base legal, comunicar incidente, devolver ao fim), o que o produto oferece hoje (tela, API, rotina), o que falta, e o prazo. O que falta vira achado ou item de roadmap.
 
 ### 6. ⏸ CHECKPOINT
 
@@ -67,7 +67,7 @@ Antes de publicar: revisão jurídica do DPA e dos termos; confirmação da list
 ## Status update
 
 ```markdown
-## F18 — Operator ✓
+## F16 — Operator ✓
 - DPA do produto em `.lgpd/operator/dpa-{produto}.md` (rascunho para revisão jurídica)
 - {N} suboperadores em `.lgpd/operator/subprocessors.md` ({M} fora do Brasil, com base do Art. 33)
 - {K} atividades como operador no ROPA
@@ -79,7 +79,7 @@ Antes de publicar: revisão jurídica do DPA e dos termos; confirmação da list
 
 - LGPD: Art. 5º, VII (operador); Art. 37 (registro, também do operador); Art. 39 (instruções); Art. 42, § 1º (responsabilidade solidária); Art. 46 e 47 (segurança e sigilo); Art. 48 (comunicação de incidente, pelo controlador); Art. 33 a 36 (transferência internacional).
 - Res. CD/ANPD 15/2024 (incidentes, 3 dias úteis do controlador); Res. CD/ANPD 19/2024 (cláusulas-padrão para transferência internacional).
-- ISO/IEC 27701:2019, cláusula 8 (controles para operadores): 8.2.1 a 8.2.6, 8.3.1, 8.4.1 a 8.4.3, 8.5.1 a 8.5.8.
+- ISO/IEC 27701:2025, Anexo A, tabela A.2 (controles para operadores): A.2.2.2 a A.2.2.7, A.2.3.2, A.2.4.2 a A.2.4.4, A.2.5.2 a A.2.5.9. Na edição de 2019 eram os controles 8.2.1 a 8.5.8; veja `lgpd-security-baseline/references/iso-27701.md` para o mapeamento.
 - ANPD, *Guia Orientativo para Definições dos Agentes de Tratamento de Dados Pessoais e do Encarregado* (2021, versão 2 em 2022): critérios para distinguir controlador e operador.
 
 > O DPA é peça contratual: passa por advogado antes de ir para o cliente. Prazos entre chaves são sugestões de mercado, não norma; o que a norma fixa é o prazo do controlador (3 dias úteis) e o registro por 5 anos.

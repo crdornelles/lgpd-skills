@@ -56,7 +56,7 @@ Formato para equipe pequena: sessão de onboarding (1 h, antes do primeiro acess
 ## F17 — Security policy ✓
 - Política em `.lgpd/security/policy.md` (rascunho, {N} decisões pendentes da direção)
 - Programa de treinamento em `.lgpd/security/training.md`
-- Próximo: aprovação e registro de leitura; depois lgpd-operator (se operador) ou lgpd-incident-response
+- Próximo: aprovação e registro de leitura; depois lgpd-incident-response
 ```
 
 > Rascunho não é política. Só vale depois de aprovado pela direção, comunicado à equipe e aplicado. Em pontos trabalhistas (dispositivo pessoal, monitoramento, sanção) ouça o jurídico.

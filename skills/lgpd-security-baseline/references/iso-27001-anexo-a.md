@@ -2,7 +2,7 @@
 
 O Anexo A da ISO/IEC 27001:2022 lista 93 controles em quatro temas; a ISO/IEC 27002:2022 descreve cada um. As normas são pagas: a lista abaixo traz só o identificador e o nome do controle, para a matriz apontar cada linha; a orientação de implementação é da 27002 e não deve ser copiada. Na coluna "Toca um SaaS?" está a leitura desta skill sobre o que costuma se aplicar a um produto hospedado em nuvem ou VM, sem escritório e sem servidor físico próprio. Ajuste ao caso.
 
-Certificação ISO 27001 exige o sistema de gestão (cláusulas 4 a 10: contexto, liderança, planejamento, apoio, operação, avaliação e melhoria), a Declaração de Aplicabilidade (SoA) e auditoria de organismo acreditado. A matriz cobre o Anexo A; não substitui a SoA nem a auditoria.
+Certificação ISO 27001 exige o sistema de gestão (cláusulas 4 a 10: contexto, liderança, planejamento, apoio, operação, avaliação e melhoria), a Declaração de Aplicabilidade (SoA) e auditoria de organismo certificador independente (normalmente acreditado). A matriz cobre o Anexo A; não substitui a SoA nem a auditoria.
 
 ## 5. Controles organizacionais (37)
 

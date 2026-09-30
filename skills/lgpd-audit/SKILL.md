@@ -83,9 +83,9 @@ Conforme a resposta, escolha o **pipeline**:
   ↓
 [F14] lgpd-vendor-audit + lgpd-dpa + lgpd-international-transfer
   ↓
-[F15] lgpd-operator (se o produto trata dados por conta de clientes)  ⏸ CHECKPOINT
+[F15] lgpd-security-baseline → matriz Art. 46 (ANPD, ISO, CIS)   ⏸ CHECKPOINT
   ↓
-[F16] lgpd-security-baseline → matriz Art. 46 (ANPD, ISO, CIS)   ⏸ CHECKPOINT
+[F16] lgpd-operator (se o produto trata dados por conta de clientes)  ⏸ CHECKPOINT
   ↓
 [F17] lgpd-security-policy   → política + treinamento
   ↓

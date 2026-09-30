@@ -4,7 +4,7 @@
 **Papéis LGPD**: {controlador / operador / ambos, com a descrição de cada tratamento}
 **Porte**: {ATPP (Res. CD/ANPD 2/2022) ou não}
 **Hospedagem**: {provedor, região, VM ou gerenciado}
-**Edições usadas**: guia da ANPD (2021), ISO/IEC 27001:2022, ISO/IEC 27701:2019, CIS Controls v8 IG1
+**Edições usadas**: guia da ANPD (2021), ISO/IEC 27001:2022, ISO/IEC 27701:2025, CIS Controls v8 IG1
 **Próxima revisão**: {data + 6 meses, ou a cada mudança de arquitetura}
 
 ## Legenda
@@ -24,7 +24,7 @@
 |---|---|---|---|---|---|
 | Guia de segurança da ANPD | | | | | |
 | ISO/IEC 27001 Anexo A | | | | | |
-| ISO/IEC 27701 (cláusula {7 / 8 / 7 e 8}) | | | | | |
+| ISO/IEC 27701:2025 (tabela {A.1 / A.2 / A.1 e A.2}) | | | | | |
 | CIS Controls v8 IG1 | | | | | 56 |
 
 **O que impede dizer "seguimos o guia da ANPD" hoje**: {as 3 a 5 lacunas que pesam mais}.
@@ -98,13 +98,13 @@ Controles em `references/iso-27001-anexo-a.md`. Uma linha por controle; os físi
 | … | | | | | |
 | 8.34 | | | | | |
 
-## 3. ISO/IEC 27701:2019
+## 3. ISO/IEC 27701:2025 — Anexo A
 
-Controles em `references/iso-27701.md`. Só a cláusula do papel do projeto (7 controlador, 8 operador).
+Controles em `references/iso-27701.md`. Só a tabela do papel do projeto (A.1 controlador, A.2 operador). Os controles de segurança da tabela A.3 ficam na seção 2, na coluna "com dado pessoal?". Matriz feita com a edição de 2019 (cláusulas 7 e 8) é legado: marque aqui e replaneje.
 
 | Id | Controle | Situação | Evidência | Dono | Lacuna |
 |---|---|---|---|---|---|
-| 7.2.1 | | | | | |
+| A.1.2.2 | | | | | |
 | … | | | | | |
 
 ## 4. CIS Controls v8 — IG1
@@ -145,7 +145,7 @@ Salvaguardas em `references/cis-v8-ig1.md`.
 |---|---|---|---|
 | | A1, 5.1 | Política de segurança | `lgpd-security-policy` |
 | | A2, 6.3, 14.x | Programa de treinamento | `lgpd-security-policy` |
-| | A3, 5.20, 8.2.1 | Contrato de operador com as contas | `lgpd-operator` |
+| | A3, 5.20, A.2.2.2 | Contrato de operador com as contas | `lgpd-operator` |
 | | 5.19, 15.1 | Fichas de suboperadores | `lgpd-vendor-audit`, `lgpd-operator` |
 | | I1 a I3, 5.24 a 5.28 | Runbook de incidente | `lgpd-incident-response` |
 
@@ -153,4 +153,4 @@ Salvaguardas em `references/cis-v8-ig1.md`.
 
 {Tudo o que a avaliação não conseguiu conferir: produção não existe, contrato não foi visto, treinamento não tem registro. Lacuna que ninguém sabe se existe é lacuna.}
 
-> Aderência não é certificação. A ISO 27001 certifica-se por auditoria de organismo acreditado; a ANPD não certifica. Este documento diz o que existe, com evidência, e o que falta.
+> Aderência não é certificação. A ISO 27001 certifica-se por auditoria de organismo certificador independente; a ANPD não certifica. Este documento diz o que existe, com evidência, e o que falta.

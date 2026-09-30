@@ -1,11 +1,11 @@
 ---
 name: lgpd-security-baseline
-description: Build an evidence-backed adherence matrix of the project against the security standards ANPD recognizes as good practice under LGPD Art. 46 — ANPD's Guia de Segurança da Informação (ATPP, 2021), ISO/IEC 27001:2022 Annex A, ISO/IEC 27701 (PIMS, controller and processor clauses) and CIS Controls v8 (IG1). Use when user asks "seguimos o guia da ANPD?", "ISO 27001", "ISO 27701", "CIS Controls", "matriz de aderência", "baseline de segurança", "medidas de segurança do Art. 46", "o que falta para dizer que somos seguros", "due diligence de segurança", or when a customer asks "what security standards do you follow". Each control gets a status, an evidence pointer (file, test, ADR, runbook) and an owner (code, operations or process). Never marks a control as met without evidence.
+description: Build an evidence-backed adherence matrix of the project against the security references for LGPD Art. 46 — ANPD's Guia de Segurança da Informação (ATPP, 2021) plus the complementary ISO/IEC 27001:2022 Annex A, ISO/IEC 27701:2025 (PIMS, Annex A controller and processor tables) and CIS Controls v8 (IG1). Use when user asks "seguimos o guia da ANPD?", "ISO 27001", "ISO 27701", "CIS Controls", "matriz de aderência", "baseline de segurança", "medidas de segurança do Art. 46", "o que falta para dizer que somos seguros", "due diligence de segurança", or when a customer asks "what security standards do you follow". Each control gets a status, an evidence pointer (file, test, ADR, runbook) and an owner (code, operations or process). Never marks a control as met without evidence.
 ---
 
 # Baseline de segurança — guia da ANPD, ISO 27001/27701 e CIS Controls
 
-Art. 46 LGPD: os agentes de tratamento devem adotar "medidas de segurança, técnicas e administrativas aptas a proteger os dados pessoais". A lei não diz quais. A ANPD aponta, como referência de boa prática, o próprio **Guia Orientativo de Segurança da Informação para Agentes de Tratamento de Pequeno Porte** (2021), a **ISO/IEC 27001** (gestão de segurança da informação), a **ISO/IEC 27701** (a extensão de privacidade, com papéis de controlador e operador) e os **CIS Controls**. Esta skill mede o projeto contra os quatro, com evidência.
+Art. 46 LGPD: os agentes de tratamento devem adotar "medidas de segurança, técnicas e administrativas aptas a proteger os dados pessoais". A lei não diz quais. A ANPD aponta, como referência de boa prática, o próprio **Guia Orientativo de Segurança da Informação para Agentes de Tratamento de Pequeno Porte** (2021). A **ISO/IEC 27001** (gestão de segurança da informação), a **ISO/IEC 27701:2025** (sistema de gestão de privacidade, com controles para controlador e operador) e os **CIS Controls** são referências complementares, sem endosso formal da ANPD. Esta skill mede o projeto contra as quatro referências, com evidência.
 
 O resultado responde a duas perguntas que chegam de fora: a do cliente corporativo ("vocês seguem o quê?") e a da ANPD numa fiscalização ("mostrem as medidas do Art. 46"). Sem a matriz, a resposta é adjetivo; com ela, é uma lista de controles com o arquivo, o teste ou a rotina que prova cada um.
 
@@ -34,7 +34,7 @@ Regras:
 
 Antes de qualquer linha:
 
-- **Papel LGPD** do projeto em cada tratamento: controlador (dados dos próprios usuários e clientes), operador (dados dos clientes dos clientes, num SaaS B2B) ou os dois. Isso decide quais cláusulas da ISO 27701 entram (7 = controlador, 8 = operador). Se for operador, rode também `lgpd-operator`.
+- **Papel LGPD** do projeto em cada tratamento: controlador (dados dos próprios usuários e clientes), operador (dados dos clientes dos clientes, num SaaS B2B) ou os dois. Isso decide quais tabelas do Anexo A da ISO 27701:2025 entram (A.1 = controlador, A.2 = operador; A.3 vale para os dois). Se for operador, rode também `lgpd-operator`.
 - **Mecanismo de isolamento** (RLS, middleware de tenant, filtro manual), **autenticação** (senha, MFA, sessão), **cifra** (em trânsito, em repouso, por campo), **backup** (ferramenta, frequência, prova de restauração), **logs e auditoria**, **CI e dependências**, **infra** (nuvem gerenciada, VM própria, container), **terceiros** com dado pessoal.
 - **Porte:** ATPP (Res. CD/ANPD 2/2022) ou não. O guia da ANPD foi escrito para ATPP; fora dele, as ISO e o CIS pesam mais.
 
@@ -64,10 +64,10 @@ Use `assets/baseline-template.md`. As listas de controles estão em `references/
 
 - `references/anpd-guia-seguranca.md` — os itens do guia da ANPD, por medida administrativa e técnica.
 - `references/iso-27001-anexo-a.md` — os 93 controles da ISO/IEC 27001:2022 (Anexo A), por tema.
-- `references/iso-27701.md` — os controles adicionais da ISO/IEC 27701 para controlador (cláusula 7) e operador (cláusula 8).
+- `references/iso-27701.md` — os controles do Anexo A da ISO/IEC 27701:2025 para controlador (tabela A.1), operador (tabela A.2) e os de segurança compartilhados (tabela A.3), com o identificador da edição de 2019 entre parênteses.
 - `references/cis-v8-ig1.md` — as 56 salvaguardas do Grupo de Implementação 1 dos CIS Controls v8, mais as do IG2 que costumam tocar um SaaS.
 
-Ordem sugerida: guia da ANPD primeiro (é o que a autoridade vai perguntar), depois CIS IG1 (é o mais concreto), depois ISO 27001, e por fim ISO 27701 (só as cláusulas do papel do projeto).
+Ordem sugerida: guia da ANPD primeiro (é o que a autoridade vai perguntar), depois CIS IG1 (é o mais concreto), depois ISO 27001, e por fim ISO 27701 (só as tabelas do papel do projeto).
 
 ### 4. Derive achados e o plano
 
@@ -99,11 +99,11 @@ Antes de dar a matriz por pronta, mostre ao usuário: os totais por padrão (cum
 E acrescente ao `.lgpd/STATUS.md`:
 
 ```markdown
-## F16 — Security baseline ✓
+## F15 — Security baseline ✓
 - Matriz em `.lgpd/security/baseline.md` (guia ANPD {a}/{n}, ISO 27001 {b}/{n}, ISO 27701 {c}/{n}, CIS IG1 {d}/{56})
 - {N} achados de código (P0: {x}, P1: {y}) em `.lgpd/security/findings.md`
 - {M} lacunas de processo encaminhadas: {skills}
-- Próximo: lgpd-security-policy
+- Próximo: lgpd-operator (se o produto for operador) e lgpd-security-policy
 ```
 
 ## Referências normativas
@@ -112,7 +112,7 @@ E acrescente ao `.lgpd/STATUS.md`:
 - Res. CD/ANPD 2/2022 (ATPP): Art. 13 orienta a adoção do guia de segurança pela ANPD.
 - ANPD, *Guia Orientativo: Segurança da Informação para Agentes de Tratamento de Pequeno Porte*, out/2021 (gov.br/anpd, "Guias orientativos"). Confira a versão vigente antes de citar a numeração das seções.
 - ISO/IEC 27001:2022 e ISO/IEC 27002:2022 (o Anexo A lista os controles; a 27002 detalha cada um). Normas pagas: cite pelo identificador do controle, nunca copie o texto integral.
-- ISO/IEC 27701:2019 (PIMS). A norma está em revisão; a versão nova muda a numeração. Registre qual edição usou.
+- ISO/IEC 27701:2025 (PIMS), edição vigente desde outubro de 2025; substituiu a de 2019, que a ISO retirou (certificados de 2019 migram até outubro de 2028). A numeração mudou: registre qual edição usou e, se for a de 2019, marque a matriz como legado.
 - CIS Controls v8 (e v8.1), Center for Internet Security, licença Creative Commons com atribuição. As salvaguardas do IG1 são a "higiene básica" que o CIS recomenda para toda organização.
 
-> Esta skill mede aderência a padrões; não certifica. Certificação ISO exige auditoria de organismo acreditado, e a ANPD não certifica ninguém. Diga "seguimos" só com a matriz na mão, e diga "somos certificados" só com o certificado.
+> Esta skill mede aderência a padrões; não certifica. Certificação ISO exige auditoria de organismo certificador independente (a acreditação dele é opcional, mas é o que dá valor ao certificado), e a ANPD não certifica ninguém. Diga "seguimos" só com a matriz na mão, e diga "somos certificados" só com o certificado.

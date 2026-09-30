@@ -6,7 +6,7 @@ O Cliente (controlador) tem obrigações que só consegue cumprir se o produto o
 
 | Dever do controlador | Norma | O que {Produto} oferece hoje | Evidência | O que falta | Prazo |
 |---|---|---|---|---|---|
-| Confirmar e dar acesso aos dados do titular em 15 dias | Art. 18, I e II; Art. 19, II | {exportação do contato em ZIP} | {arquivo, teste} | | |
+| Confirmar e dar acesso aos dados do titular: formato simplificado de imediato ou declaração completa em até 15 dias | Art. 18, I e II; Art. 19, I e II | {exportação do contato em ZIP} | {arquivo, teste} | | |
 | Corrigir dados | Art. 18, III | {edição da ficha} | | | |
 | Anonimizar, bloquear ou eliminar | Art. 18, IV e VI | {anonimização e exclusão com supressão} | | | |
 | Portabilidade | Art. 18, V | {exportação estruturada} | | | |
@@ -18,5 +18,5 @@ O Cliente (controlador) tem obrigações que só consegue cumprir se o produto o
 | Comunicar incidente à ANPD em 3 dias úteis | Art. 48; Res. 15/2024 | {aviso do operador em 24 h; dados do incidente} | | | |
 | Manter registro das operações | Art. 37 | {relatório do que a conta trata; lista de integrações} | | | |
 | Devolver e eliminar ao fim do contrato | Art. 16 | {exportação da conta; exclusão no encerramento} | | | |
-| Saber quem acessou (acesso administrativo do operador) | Art. 46; ISO 27701 8.2.6 | {impersonação auditada e visível ao cliente} | | | |
-| Impedir uso dos dados para fins do operador | Art. 39; ISO 27701 8.2.2 | {nenhum uso; métricas agregadas} | | | |
+| Saber quem acessou (acesso administrativo do operador) | Art. 46; ISO 27701:2025 A.2.2.7 | {impersonação auditada e visível ao cliente} | | | |
+| Impedir uso dos dados para fins do operador | Art. 39; ISO 27701:2025 A.2.2.3 | {nenhum uso; métricas agregadas} | | | |

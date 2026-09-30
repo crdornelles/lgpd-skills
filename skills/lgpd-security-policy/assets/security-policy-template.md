@@ -28,7 +28,8 @@ Esta política define as regras de segurança da informação da {organização}
 | Interna | código, roadmap, métricas agregadas | só pessoas da organização; repositório privado |
 | Confidencial | contratos, segredos de produção, financeiro | acesso nominal e registrado; cifrado em repouso |
 | Dado pessoal | nome, e-mail, telefone, mensagens dos clientes e dos clientes deles | só pelos sistemas e caminhos previstos; nunca em chat, planilha solta, log ou ferramenta não aprovada; retenção definida |
-| Dado pessoal sensível ou de criança | saúde, biometria, origem, religião; menores de 12 anos | tratamento só com base legal específica (Art. 11, 14) e cifra por campo |
+| Dado pessoal sensível | saúde, biometria, origem racial ou étnica, religião, opinião política, vida sexual | só com base legal do Art. 11; cifra por campo, acesso nominal e registrado |
+| Dado de criança ou adolescente | dado pessoal de pessoa com menos de 18 anos | todo tratamento observa o melhor interesse (Art. 14); documente a base legal aplicável (Art. 7º ou 11) e as regras do ECA Digital quando o produto for voltado a menores |
 
 ## 4. Uso aceitável
 

@@ -9,7 +9,7 @@
 
 ---
 
-> **EN — Quick overview:** An Agent Skills bundle (works in Claude Code, Codex, Gemini CLI, Cursor, and OpenCode) that runs an end-to-end Brazilian privacy-law compliance audit on your codebase. One orchestrator skill (`lgpd-audit`) chains 21 specialized sub-skills covering legal basis, data mapping, ROPA, DPIA (RIPD), consent ledger, DSAR endpoints, incident response (3 business days notification), encryption, retention, vendor DPAs, international transfer clauses, ECA Digital (online safety for minors), a security baseline against ANPD's security guide / ISO 27001 / ISO 27701 / CIS Controls, security policy and training, and the processor side (customer-facing DPA and sub-processor list). Outputs versioned artifacts under `.lgpd/`. Triggered by phrases like *"audit our LGPD compliance"* or *"we had a data breach"*. MIT licensed.
+> **EN — Quick overview:** An Agent Skills bundle (works in Claude Code, Codex, Gemini CLI, Cursor, and OpenCode) that runs an end-to-end Brazilian privacy-law compliance audit on your codebase. One orchestrator skill (`lgpd-audit`) chains 21 specialized sub-skills covering legal basis, data mapping, ROPA, DPIA (RIPD), consent ledger, DSAR endpoints, incident response (3 business days notification), encryption, retention, vendor DPAs, international transfer clauses, ECA Digital (online safety for minors), a security baseline against ANPD's security guide / ISO 27001 / ISO 27701:2025 / CIS Controls, security policy and training, and the processor side (customer-facing DPA and sub-processor list). Outputs versioned artifacts under `.lgpd/`. Triggered by phrases like *"audit our LGPD compliance"* or *"we had a data breach"*. MIT licensed.
 
 ---
 
@@ -19,7 +19,7 @@
 - [Quando usar](#-quando-usar)
 - [Instalação](#-instalação)
 - [Como usar](#-como-usar)
-- [As 22 skills](#-as-22-skills)
+- [As 22 skills](#%EF%B8%8F-as-22-skills)
 - [Living artifacts em `.lgpd/`](#-living-artifacts-em-lgpd)
 - [Gatilhos](#-gatilhos)
 - [Cobertura normativa](#-cobertura-normativa)
