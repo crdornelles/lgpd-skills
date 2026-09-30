@@ -9,7 +9,7 @@
 
 ---
 
-> **EN — Quick overview:** An Agent Skills bundle (works in Claude Code, Codex, Gemini CLI, Cursor, and OpenCode) that runs an end-to-end Brazilian privacy-law compliance audit on your codebase. One orchestrator skill (`lgpd-audit`) chains 18 specialized sub-skills covering legal basis, data mapping, ROPA, DPIA (RIPD), consent ledger, DSAR endpoints, incident response (3 business days notification), encryption, retention, vendor DPAs, international transfer clauses, and ECA Digital (online safety for minors). Outputs versioned artifacts under `.lgpd/`. Triggered by phrases like *"audit our LGPD compliance"* or *"we had a data breach"*. MIT licensed.
+> **EN — Quick overview:** An Agent Skills bundle (works in Claude Code, Codex, Gemini CLI, Cursor, and OpenCode) that runs an end-to-end Brazilian privacy-law compliance audit on your codebase. One orchestrator skill (`lgpd-audit`) chains 21 specialized sub-skills covering legal basis, data mapping, ROPA, DPIA (RIPD), consent ledger, DSAR endpoints, incident response (3 business days notification), encryption, retention, vendor DPAs, international transfer clauses, ECA Digital (online safety for minors), a security baseline against ANPD's security guide / ISO 27001 / ISO 27701 / CIS Controls, security policy and training, and the processor side (customer-facing DPA and sub-processor list). Outputs versioned artifacts under `.lgpd/`. Triggered by phrases like *"audit our LGPD compliance"* or *"we had a data breach"*. MIT licensed.
 
 ---
 
@@ -19,7 +19,7 @@
 - [Quando usar](#-quando-usar)
 - [Instalação](#-instalação)
 - [Como usar](#-como-usar)
-- [As 19 skills](#-as-19-skills)
+- [As 22 skills](#-as-22-skills)
 - [Living artifacts em `.lgpd/`](#-living-artifacts-em-lgpd)
 - [Gatilhos](#-gatilhos)
 - [Cobertura normativa](#-cobertura-normativa)
@@ -34,10 +34,10 @@
 
 Um pacote de **Agent Skills** — instalável em Claude Code, Codex, Gemini CLI, Cursor e OpenCode — que transforma uma conversa de "preciso adequar isso aqui à LGPD" em um pipeline executável, versionável e auditável.
 
-Em vez de uma skill gigante e monolítica, aqui são **19 skills coordenadas**:
+Em vez de uma skill gigante e monolítica, aqui são **22 skills coordenadas**:
 
 - **1 maestro** (`lgpd-audit`) que orquestra todo o fluxo, decide o pipeline, mantém estado e pausa em checkpoints críticos
-- **18 sub-skills** especializadas — cada uma roda sozinha, ou em sequência sob comando do maestro
+- **21 sub-skills** especializadas — cada uma roda sozinha, ou em sequência sob comando do maestro
 
 Cada sub-skill produz **artefatos vivos versionáveis em Git** sob `.lgpd/` (STATUS.md, ROPA.md, RIPD/, política, runbook de incidente, etc.) — combina com fluxo de ADR e spec-driven development.
 
@@ -82,7 +82,7 @@ nada ao marketplace da OpenAI — o repo é a própria fonte.
 gemini extensions install https://github.com/goul4rt/lgpd-skills
 ```
 
-Atualizar: `gemini extensions update lgpd-skills`. As 19 skills são auto-descobertas e
+Atualizar: `gemini extensions update lgpd-skills`. As 22 skills são auto-descobertas e
 disparam via `activate_skill`.
 
 ### Cursor
@@ -159,7 +159,7 @@ Agente: [ativa lgpd-incident-response em modo emergencial]
   → Vou guiar pelo runbook da Res. 15/2024. T+0...
 ```
 
-## 🗂️ As 19 skills
+## 🗂️ As 22 skills
 
 ```
 lgpd-audit (maestro)
@@ -181,7 +181,10 @@ lgpd-audit (maestro)
 ├── lgpd-anonymization         k-anonymity, pseudonimização, vault de tokens
 ├── lgpd-retention-erasure     Hierarquia retenção legal × eliminação (Art. 18, VI)
 ├── lgpd-eca-digital-minors    Lei 15.211/2025 — verificação de idade, vinculação ao responsável
-└── lgpd-legacy-retrofit       Discovery + gap analysis + plano priorizado (entrada Pipeline B)
+├── lgpd-legacy-retrofit       Discovery + gap analysis + plano priorizado (entrada Pipeline B)
+├── lgpd-security-baseline     Art. 46 — matriz de aderência ao guia da ANPD, ISO 27001/27701 e CIS v8 IG1, com evidência
+├── lgpd-security-policy       Política de segurança da informação + programa de conscientização (medidas administrativas do guia da ANPD)
+└── lgpd-operator              O produto como operador (Art. 39) — DPA para os clientes, suboperadores, ROPA como operador
 ```
 
 ## 📂 Living artifacts em `.lgpd/`
@@ -206,6 +209,8 @@ Tudo que as skills produzem fica versionado:
 ├── transfers/             ← transferências internacionais (Res. 19/2024)
 ├── encarregado.md         ← designação + publicação
 ├── eca-digital.md         ← se aplicável
+├── security/              ← baseline Art. 46 (ANPD, ISO, CIS), findings, política, treinamento
+├── operator/              ← DPA do produto como operador, suboperadores, deveres para com o cliente
 └── gaps.md                ← não-conformidades priorizadas
 ```
 
@@ -229,6 +234,9 @@ O agente detecta automaticamente — você não precisa decorar nada. Exemplos q
 | "política de privacidade" | `lgpd-privacy-policy` |
 | "DPA com a AWS" | `lgpd-dpa` |
 | "menores na plataforma" | `lgpd-eca-digital-minors` |
+| "seguimos o guia da ANPD?", "ISO 27001", "CIS Controls" | `lgpd-security-baseline` |
+| "política de segurança da informação", "treinamento" | `lgpd-security-policy` |
+| "o cliente pediu nosso DPA", "lista de suboperadores" | `lgpd-operator` |
 
 ## 📚 Cobertura normativa
 

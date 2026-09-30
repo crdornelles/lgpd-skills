@@ -1,7 +1,7 @@
 {
   "name": "lgpd-skills",
-  "version": "1.2.0",
-  "description": "Conjunto modular e orquestrado de skills de conformidade LGPD (Lei 13.709/2018), resoluções da ANPD e ECA Digital (Lei 15.211/2025). 1 maestro (lgpd-audit) + 18 sub-skills.",
+  "version": "1.3.0",
+  "description": "Conjunto modular e orquestrado de skills de conformidade LGPD (Lei 13.709/2018), resoluções da ANPD e ECA Digital (Lei 15.211/2025). 1 maestro (lgpd-audit) + 21 sub-skills.",
   "author": {
     "name": "goul4rt",
     "url": "https://github.com/goul4rt"
@@ -14,7 +14,7 @@
   "interface": {
     "displayName": "LGPD Skills",
     "shortDescription": "Auditoria e conformidade LGPD ponta-a-ponta no seu código",
-    "longDescription": "1 maestro (lgpd-audit) que orquestra 18 sub-skills especializadas: base legal, mapeamento de dados, ROPA, RIPD, consentimento, DSAR, resposta a incidentes, encarregado, criptografia, retenção, DPA, transferência internacional e proteção de menores (ECA Digital / Lei 15.211/2025). Produz artefatos versionáveis em .lgpd/.",
+    "longDescription": "1 maestro (lgpd-audit) que orquestra 21 sub-skills especializadas: base legal, mapeamento de dados, ROPA, RIPD, consentimento, DSAR, resposta a incidentes, encarregado, criptografia, retenção, DPA, transferência internacional, proteção de menores, baseline de segurança (guia da ANPD, ISO 27001/27701, CIS Controls), política de segurança e o lado do operador (ECA Digital / Lei 15.211/2025). Produz artefatos versionáveis em .lgpd/.",
     "developerName": "goul4rt",
     "category": "Compliance",
     "capabilities": ["Interactive", "Read", "Write"],

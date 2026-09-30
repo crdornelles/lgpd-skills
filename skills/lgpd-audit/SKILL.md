@@ -1,6 +1,6 @@
 ---
 name: lgpd-audit
-description: Maestro orchestrator for end-to-end LGPD (Lei 13.709/2018) compliance in a software project. Use for "como estamos de LGPD", "audite LGPD", "nos deixe LGPD seguros", "gap analysis LGPD", "compliance LGPD", "auditar privacidade", "LGPD do projeto", or any request to assess, implement, or retrofit privacy compliance — including English phrasings like "are we privacy-safe", "audit our privacy", or "we collect personal data, what do we need". Chains specialized sub-skills (data mapping, legal basis, consent, DSAR, incident response, ROPA, RIPD, retention, vendor audit, DPA, international transfer, encarregado, and ECA Digital / Lei 15.211/2025 for platforms with minors) and produces versioned artifacts under .lgpd/. Trigger even when the word "LGPD" is not used.
+description: Maestro orchestrator for end-to-end LGPD (Lei 13.709/2018) compliance in a software project. Use for "como estamos de LGPD", "audite LGPD", "nos deixe LGPD seguros", "gap analysis LGPD", "compliance LGPD", "auditar privacidade", "LGPD do projeto", or any request to assess, implement, or retrofit privacy compliance — including English phrasings like "are we privacy-safe", "audit our privacy", or "we collect personal data, what do we need". Chains specialized sub-skills (data mapping, legal basis, consent, DSAR, incident response, ROPA, RIPD, retention, vendor audit, DPA, international transfer, encarregado, security baseline against ANPD guide / ISO 27001 / ISO 27701 / CIS Controls, security policy, processor-side DPA, and ECA Digital / Lei 15.211/2025 for platforms with minors) and produces versioned artifacts under .lgpd/. Trigger even when the word "LGPD" is not used.
 ---
 
 # LGPD Audit — Maestro de Conformidade
@@ -31,6 +31,8 @@ Você é o orquestrador de uma avaliação completa de LGPD para o projeto atual
    ├── transfers/             # transferências internacionais (Res. 19/2024)
    ├── encarregado.md         # designação + contato (Res. 18/2024)
    ├── eca-digital.md         # se aplicável (Lei 15.211/2025)
+   ├── security/              # baseline Art. 46 (ANPD, ISO 27001/27701, CIS), política, treinamento
+   ├── operator/              # o produto como operador: DPA para clientes, suboperadores
    └── gaps.md                # lista de não-conformidades + responsáveis
    ```
 3. **Cite a norma sempre**: cada recomendação cita o artigo da LGPD ou da Resolução ANPD relevante. Sem citação, sem recomendação.
@@ -81,7 +83,13 @@ Conforme a resposta, escolha o **pipeline**:
   ↓
 [F14] lgpd-vendor-audit + lgpd-dpa + lgpd-international-transfer
   ↓
-[F15] Relatório final em STATUS.md
+[F15] lgpd-operator (se o produto trata dados por conta de clientes)  ⏸ CHECKPOINT
+  ↓
+[F16] lgpd-security-baseline → matriz Art. 46 (ANPD, ISO, CIS)   ⏸ CHECKPOINT
+  ↓
+[F17] lgpd-security-policy   → política + treinamento
+  ↓
+[F18] Relatório final em STATUS.md
 ```
 
 ### Pipeline B — Legacy retrofit
@@ -113,7 +121,11 @@ Conforme a resposta, escolha o **pipeline**:
   ↓
 [L12] lgpd-dpo-encarregado
   ↓
-[L13] STATUS.md + plano de remediação priorizado
+[L13] lgpd-security-baseline → o que o Art. 46 pede e o que existe  ⏸ CHECKPOINT
+  ↓
+[L14] lgpd-security-policy + lgpd-operator (se operador)
+  ↓
+[L15] STATUS.md + plano de remediação priorizado
 ```
 
 ### Pipeline C — Híbrido

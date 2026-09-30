@@ -88,6 +88,17 @@ Eixos de fiscalização: (i) direitos dos titulares; (ii) crianças/adolescentes
 
 Transformou a ANPD em agência reguladora autônoma. Não muda os deveres dos controladores, mas indica fiscalização mais ativa adiante.
 
+## Padrões de segurança que a ANPD reconhece (Art. 46)
+
+A LGPD não lista medidas de segurança. A ANPD aponta como referência de boa prática:
+
+- **Guia Orientativo de Segurança da Informação para ATPP** (ANPD, out/2021): medidas administrativas (política, treinamento, contratos) e técnicas (controle de acesso, dados armazenados, comunicação segura, vulnerabilidades, dispositivos móveis, nuvem). Res. 2/2022, Art. 13.
+- **ISO/IEC 27001:2022** (gestão de segurança da informação; Anexo A com 93 controles) e **ISO/IEC 27002:2022** (orientação de cada controle). Normas pagas; certificação só por organismo acreditado.
+- **ISO/IEC 27701:2019** (extensão de privacidade: cláusula 7 para controladores, cláusula 8 para operadores). Em revisão.
+- **CIS Controls v8** (Center for Internet Security): 18 controles, 153 salvaguardas; o IG1 (56) é o mínimo para qualquer organização.
+
+Nenhum deles é obrigatório por lei; "seguimos" exige evidência (skill `lgpd-security-baseline`), e "somos certificados" exige certificado.
+
 ## Thresholds de decisão
 
 | Condição | Consequência |
@@ -105,3 +116,6 @@ Transformou a ANPD em agência reguladora autônoma. Não muda os deveres dos co
 - Lei 15.211/2025: https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15211.htm
 - ANPD: https://www.gov.br/anpd/pt-br
 - Guia gov.br LGPD: https://www.gov.br/governodigital/pt-br/privacidade-e-seguranca/guias/guia_lgpd.pdf
+- Guias orientativos da ANPD (segurança da informação para ATPP, agentes de tratamento e encarregado): https://www.gov.br/anpd/pt-br/documentos-e-publicacoes/documentos-de-publicacoes
+- CIS Controls v8: https://www.cisecurity.org/controls/v8
+- ISO/IEC 27001, 27002 e 27701: https://www.iso.org (normas pagas; no Brasil, ABNT NBR ISO/IEC)

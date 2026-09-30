@@ -20,6 +20,9 @@
 | `lgpd-vendor-audit` | Due diligence em operadores | `vendors/audit-{date}.md` |
 | `lgpd-eca-digital-minors` | Plataformas com menores (Lei 15.211/2025) | `eca-digital.md` |
 | `lgpd-legacy-retrofit` | Gap analysis em sistema legado | `gaps.md` |
+| `lgpd-security-baseline` | Matriz de aderência ao guia de segurança da ANPD, ISO 27001/27701 e CIS Controls (Art. 46) | `security/baseline.md`, `security/findings.md` |
+| `lgpd-security-policy` | Política de segurança da informação + programa de treinamento | `security/policy.md`, `security/training.md` |
+| `lgpd-operator` | O produto como operador: DPA para os clientes, suboperadores, ROPA como operador | `operator/dpa-{produto}.md`, `operator/subprocessors.md`, `operator/customer-duties.md` |
 
 ## Ordem de prioridade (se tempo for limitado)
 
@@ -38,3 +41,5 @@
 - `lgpd-dpa` requer `lgpd-vendor-audit`
 - `lgpd-international-transfer` requer `lgpd-vendor-audit`
 - `lgpd-eca-digital-minors` é independente mas afeta `lgpd-privacy-policy` e `lgpd-consent-schema`
+- `lgpd-security-baseline` lê o que `lgpd-encryption-keys`, `lgpd-audit-logging`, `lgpd-retention-erasure` e `lgpd-incident-response` produziram; as lacunas administrativas dela alimentam `lgpd-security-policy` e `lgpd-operator`
+- `lgpd-operator` requer `lgpd-vendor-audit` (os suboperadores) e alimenta a seção II do `lgpd-ropa`
